@@ -1,3 +1,5 @@
+# Stage 1
+
 USE credit_shelf;
 
 DROP TABLE IF EXISTS Crashes;

@@ -1,3 +1,5 @@
+## Stage 0
+
 # importing the requests library
 import requests
 import mysql.connector
