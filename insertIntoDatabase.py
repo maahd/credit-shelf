@@ -2,6 +2,11 @@
 import requests
 import mysql.connector
 
+# for env variables
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
 mydb = mysql.connector.connect(
   host="localhost",
   user=os.getenv("user"),
