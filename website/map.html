@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+            {{sndmap.js}}
+            <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Credit Shelf</h1>
+
+        <h2>Distribution of bicycle crashes</h2>
+        <div>
+          {{sndmap.html}}
+        </div>
+        <br>
+        <div>
+          <label for="boroughs">Choose a borough:</label>
+
+          <select name="boroughs" id="boroughs" onchange="boroughChanged()">
+            <option value="MANHATTAN">MANHATTAN</option>
+            <option value="QUEENS">QUEENS</option>
+            <option value="BROOKLYN">BROOKLYN</option>
+            <option value="BRONX">BRONX</option>
+          </select>
+        </div>
+    </body>
+</html>

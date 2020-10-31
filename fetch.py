@@ -15,7 +15,9 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+
 def get_coordinates_for_borough(borough):
+    crashMarkers = []
     sql = "SELECT latitude, longitude FROM crashes WHERE borough = %s"
     borough = (borough,)
 
@@ -24,6 +26,8 @@ def get_coordinates_for_borough(borough):
     myresult = mycursor.fetchall()
 
     for x in myresult:
-      print(x)
+        lat = float(x[0])
+        lon = float(x[1])
+        crashMarkers.append((lat, lon))
 
-get_coordinates_for_borough("QUEENS")
+    return crashMarkers
