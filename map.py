@@ -2,17 +2,16 @@ from flask import Flask, render_template, request
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
 
-from fetch import get_coordinates_for_borough
-
-crashMarkers = get_coordinates_for_borough("QUEENS")
+from fetch import get_coordinates_for_borough, get_coordinates_for_all_boroughs
 
 app = Flask(__name__, template_folder=".")
 GoogleMaps(app)
 
-boroughs = ["MANHATTAN", "QUEENS", "BROOKLYN", "BRONX"]
+boroughs = ["ALL", "MANHATTAN", "QUEENS", "BROOKLYN", "BRONX"]
 
 @app.route("/")
 def mapview():
+    crashMarkers = get_coordinates_for_all_boroughs()
     # creating a map in the view
     sndmap = Map(
         identifier="sndmap",
@@ -21,12 +20,11 @@ def mapview():
         markers=crashMarkers,
         fit_markers_to_bounds = True
     )
-    return render_template('./website/map.html', sndmap=sndmap, boroughs=boroughs)
+    return render_template('./website/map.html', sndmap=sndmap, boroughs=boroughs, selectedBorough=boroughs[0])
 
 @app.route("/selectBorough", methods=['POST'])
 def selectBorough():
-    selectedBorough = request.form.get('seletedborough')
-    print(selectedBorough)
+    selectedBorough = request.form.get('optionSeletedborough')
     selectedCrashMarkers = get_coordinates_for_borough(selectedBorough)
     print(selectedCrashMarkers)
     sndmap = Map(

@@ -16,7 +16,7 @@
           <label for="boroughs">Choose a borough:</label>
 
           <form class="form-inline" method="POST" action="{{ url_for('selectBorough') }}">
-            <select name="seletedborough" method="GET" action="/">
+            <select name="optionSeletedborough" method="GET" action="/">
               {% for borough in boroughs %}
                 {% if selectedBorough == borough %}
                   <option value="{{borough}}" SELECTED>{{borough}}</option>
