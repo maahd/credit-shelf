@@ -18,7 +18,8 @@ def mapview():
         lat=40.7128,
         lng=-74.0060,
         markers=crashMarkers,
-        fit_markers_to_bounds = True
+        zoom=11
+        #fit_markers_to_bounds = True
     )
     return render_template('./website/map.html', sndmap=sndmap, boroughs=boroughs, selectedBorough=boroughs[0])
 
@@ -31,7 +32,8 @@ def selectBorough():
         lat=40.7128,
         lng=-74.0060,
         markers=selectedCrashMarkers,
-        fit_markers_to_bounds = True
+        zoom=11
+        #fit_markers_to_bounds = True
     )
     return render_template('./website/map.html', sndmap=sndmap, selectedBorough = selectedBorough, boroughs=boroughs)
 
