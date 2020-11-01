@@ -26,8 +26,9 @@ def get_coordinates_for_borough(borough):
     myresult = mycursor.fetchall()
 
     for x in myresult:
-        lat = float(x[0])
-        lon = float(x[1])
-        crashMarkers.append((lat, lon))
+        if (x[0] and x[1]) is not None:
+            lat = float(x[0])
+            lon = float(x[1])
+            crashMarkers.append((lat, lon))
 
     return crashMarkers

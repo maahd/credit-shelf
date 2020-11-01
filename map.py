@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
 
@@ -17,6 +17,21 @@ def mapview():
         lat=40.7128,
         lng=-74.0060,
         markers=crashMarkers,
+        fit_markers_to_bounds = True
+    )
+    return render_template('./website/map.html', sndmap=sndmap)
+
+@app.route("/selectBorough", methods=['POST'])
+def selectBorough():
+    select = request.form.get('seletedborough')
+    print(select)
+    selectedCrashMarkers = get_coordinates_for_borough(select)
+    print(selectedCrashMarkers)
+    sndmap = Map(
+        identifier="sndmap",
+        lat=40.7128,
+        lng=-74.0060,
+        markers=selectedCrashMarkers,
         fit_markers_to_bounds = True
     )
     return render_template('./website/map.html', sndmap=sndmap)

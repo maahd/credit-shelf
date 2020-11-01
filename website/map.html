@@ -15,12 +15,15 @@
         <div>
           <label for="boroughs">Choose a borough:</label>
 
-          <select name="boroughs" id="boroughs" onchange="boroughChanged()">
-            <option value="MANHATTAN">MANHATTAN</option>
-            <option value="QUEENS">QUEENS</option>
-            <option value="BROOKLYN">BROOKLYN</option>
-            <option value="BRONX">BRONX</option>
-          </select>
+          <form class="form-inline" method="POST" action="{{ url_for('selectBorough') }}">
+            <select name="seletedborough" id="boroughs">
+              <option value="MANHATTAN">MANHATTAN</option>
+              <option value="QUEENS">QUEENS</option>
+              <option value="BROOKLYN">BROOKLYN</option>
+              <option value="BRONX">BRONX</option>
+            </select>
+            <button type="submit" class="btn btn-default">Go</button>
+          </form>
         </div>
     </body>
 </html>
