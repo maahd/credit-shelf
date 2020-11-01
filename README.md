@@ -13,3 +13,8 @@ Stage 1) run `python insertIntoDatabase.py`
 
 Stage 3) The web app is built with Flask. First run `export FLASK_APP=map.py`. Then `flask run`. Keep in mind that this is a developer preview. It's not free to use the Google Maps API anymore. If the map doesn't load, please run
 `pip install flask-googlemaps`.
+
+Version:
+Python 3.8.6
+Flask 1.1.2
+Werkzeug 1.0.1
