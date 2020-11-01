@@ -26,7 +26,6 @@ def get_coordinates_for_all_boroughs():
             lon = float(x[1])
             crashMarkers.append((lat, lon))
 
-    print(crashMarkers)
     return crashMarkers
 
 def get_coordinates_for_borough(borough):

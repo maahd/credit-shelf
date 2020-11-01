@@ -26,7 +26,6 @@ def mapview():
 def selectBorough():
     selectedBorough = request.form.get('optionSeletedborough')
     selectedCrashMarkers = get_coordinates_for_borough(selectedBorough)
-    print(selectedCrashMarkers)
     sndmap = Map(
         identifier="sndmap",
         lat=40.7128,
