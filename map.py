@@ -9,6 +9,8 @@ crashMarkers = get_coordinates_for_borough("QUEENS")
 app = Flask(__name__, template_folder=".")
 GoogleMaps(app)
 
+boroughs = ["MANHATTAN", "QUEENS", "BROOKLYN", "BRONX"]
+
 @app.route("/")
 def mapview():
     # creating a map in the view
@@ -19,13 +21,13 @@ def mapview():
         markers=crashMarkers,
         fit_markers_to_bounds = True
     )
-    return render_template('./website/map.html', sndmap=sndmap)
+    return render_template('./website/map.html', sndmap=sndmap, boroughs=boroughs)
 
 @app.route("/selectBorough", methods=['POST'])
 def selectBorough():
-    select = request.form.get('seletedborough')
-    print(select)
-    selectedCrashMarkers = get_coordinates_for_borough(select)
+    selectedBorough = request.form.get('seletedborough')
+    print(selectedBorough)
+    selectedCrashMarkers = get_coordinates_for_borough(selectedBorough)
     print(selectedCrashMarkers)
     sndmap = Map(
         identifier="sndmap",
@@ -34,7 +36,7 @@ def selectBorough():
         markers=selectedCrashMarkers,
         fit_markers_to_bounds = True
     )
-    return render_template('./website/map.html', sndmap=sndmap)
+    return render_template('./website/map.html', sndmap=sndmap, selectedBorough = selectedBorough, boroughs=boroughs)
 
 if __name__ == "__main__":
     app.run(debug=True)
