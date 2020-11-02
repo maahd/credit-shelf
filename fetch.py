@@ -17,6 +17,7 @@ mycursor = mydb.cursor()
 
 def get_coordinates_for_all_boroughs():
     crashMarkers = []
+
     sql = "SELECT latitude, longitude FROM crashes"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
@@ -24,7 +25,16 @@ def get_coordinates_for_all_boroughs():
         if (x[0] and x[1]) is not None:
             lat = float(x[0])
             lon = float(x[1])
-            crashMarkers.append((lat, lon))
+            crashMarkers.append((lat, lon,'<b>crash<b>', 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'))
+
+    sql = "SELECT latitude, longitude FROM Stations"
+    mycursor.execute(sql)
+    myresult = mycursor.fetchall()
+    for x in myresult:
+        if (x[0] and x[1]) is not None:
+            lat = float(x[0])
+            lon = float(x[1])
+            crashMarkers.append((lat, lon,'<b>station<b>', 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'))
 
     return crashMarkers
 
@@ -44,6 +54,15 @@ def get_coordinates_for_borough(borough):
             if (x[0] and x[1]) is not None:
                 lat = float(x[0])
                 lon = float(x[1])
-                crashMarkers.append((lat, lon))
+                crashMarkers.append((lat, lon, '<b>crash<b>', 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'))
+
+        sql = "SELECT latitude, longitude FROM Stations"
+        mycursor.execute(sql)
+        myresult = mycursor.fetchall()
+        for x in myresult:
+            if (x[0] and x[1]) is not None:
+                lat = float(x[0])
+                lon = float(x[1])
+                crashMarkers.append((lat, lon,'<b>station<b>', 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'))
 
         return crashMarkers
