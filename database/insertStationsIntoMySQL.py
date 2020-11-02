@@ -17,6 +17,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+# This will store a list of tuples. Each tuple contains info about one station.
 stations = []
 
 with open('files/modified/combined/2019-citibike-tripdata-modified-combined.csv') as csv_file:

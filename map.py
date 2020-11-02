@@ -1,3 +1,6 @@
+# This is the file you should export before starting your flask server. Please do `export FLASK_APP=map.py`.
+# This file defines 2 routes. One for the homepage and one for when you select a borough. It draws the map with the appropriate markers.
+
 from flask import Flask, render_template, request
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map

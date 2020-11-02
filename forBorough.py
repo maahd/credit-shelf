@@ -1,3 +1,4 @@
+# A small CLI that returns info about injured or killed cyclists by borough
 ## Stage 0
 
 # importing the requests library

@@ -1,3 +1,5 @@
+# Combine all the files after cleaning them up
+
 import pandas as pd
 import glob
 

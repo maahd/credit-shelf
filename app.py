@@ -1,3 +1,5 @@
+# please export the other file (map.py) when running your flask server
+
 from flask import Flask, jsonify, request, render_template
 from flask_googlemaps import GoogleMaps
 

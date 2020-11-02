@@ -1,3 +1,5 @@
+# Didn't really use this as I moved to Pandas. It's better for larger data sets.
+
 import csv
 
 with open('../files/201901-citibike-tripdata.csv') as csv_file:

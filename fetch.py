@@ -1,3 +1,5 @@
+# Methods in this file are called by the map.py file. They are used to return a list of tuples. This list contains the markers we wanna draw on the map
+
 import mysql.connector
 
 # for env variables

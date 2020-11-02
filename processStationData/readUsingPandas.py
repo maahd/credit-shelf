@@ -1,3 +1,5 @@
+# Each fine was one month in the year 2019. It contained info about trips. I removed all the extra info so we are only left with info pertaining to the stations. Obviously we had a lot of duplicates cuz this is info about the trips. So I removed the duplicates so each station occurs only once. I used the station ID for this.
+
 import pandas
 
 filename="../files/original/201912-citibike-tripdata.csv"
