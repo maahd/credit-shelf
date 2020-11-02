@@ -1,6 +1,6 @@
 import csv
 
-with open('files/201901-citibike-tripdata.csv') as csv_file:
+with open('../files/201901-citibike-tripdata.csv') as csv_file:
     csv_reader = csv.DictReader(csv_file, delimiter=',')
     line_count = 0
     stations_id = []

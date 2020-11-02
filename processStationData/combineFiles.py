@@ -1,7 +1,7 @@
 import pandas as pd
 import glob
 
-path = r'/Users/maahd/coding/creditShelf/files/modified'
+path = r'../files/modified'
 all_files = glob.glob(path + "/*.csv")
 
 li = []

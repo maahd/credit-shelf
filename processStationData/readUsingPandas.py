@@ -1,6 +1,6 @@
 import pandas
 
-filename="files/original/201912-citibike-tripdata.csv"
+filename="../files/original/201912-citibike-tripdata.csv"
 resulting_file_name = filename.replace('.csv', '-mofified.csv')
 resulting_file_name = resulting_file_name.replace('files/original', 'files/modified')
 

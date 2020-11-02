@@ -18,3 +18,11 @@ Version:
 Python 3.8.6
 Flask 1.1.2
 Werkzeug 1.0.1
+
+Blue markers are stations. Green markers are crashes.
+
+I have included a dump of the final state of my database. You can also use my sql python scripts to set up your DB locally and import data into it. For example, you can use createStationTable.sql like this:
+
+`mysql -u <YOUR MYSQL USERNAME HERE> -p credit_shelf < sql/createStationTable.sql`
+
+The `processStationData` dir has the python scripts I used to clean and combine the files for the station data. This data was later imported into the DB.
